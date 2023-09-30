@@ -1,3 +1,10 @@
+const TG = window.Telegram?.WebApp;
+const theme = TG?.colorScheme || "dark";
+
+if (theme === "light") {
+  document.body.setAttribute("colorScheme", "white");
+}
+
 const render_data = (data, ref) => {
   const container = document.createElement("div");
   container.classList.add("tasks-container");
@@ -113,7 +120,7 @@ document.querySelector(".addCategory").addEventListener("click", () => {
   const inp = document.createElement("input");
   const btn = document.createElement("button");
   btn.innerText = "Добавить";
-  inp.placeholder = "forjuns"
+  inp.placeholder = "Hackich";
   btn.addEventListener("click", () => {
     if (inp.value) {
       fetch("", {
@@ -127,7 +134,7 @@ document.querySelector(".addCategory").addEventListener("click", () => {
         })
         .then(window.location.reload());
     } else {
-      inp.style.borderColor = "red"
+      inp.style.borderColor = "red";
     }
   });
 
@@ -137,3 +144,6 @@ document.querySelector(".addCategory").addEventListener("click", () => {
   overlay.addEventListener("click", (e) => _onModalDismiss(e, overlay));
   document.body.appendChild(overlay);
 });
+
+// window.Telegram.WebApp.initDataUnsafe;
+// window.Telegram.WebApp.colorScheme;

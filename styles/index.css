@@ -44,13 +44,13 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgb(var(--color-primary-black));
+  background-color: rgb(var(--color-ghost-white));
   z-index: 99;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: rgb(var(--color-ghost-white));
+  color: rgb(var(--color-primary-black));
 }
 
 .loader h3 {
@@ -58,7 +58,7 @@
 }
 
 .loader img {
-  height: 20vh;
+  height: 30vh;
 }
 
 .hide {
