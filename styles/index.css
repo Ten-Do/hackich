@@ -26,3 +26,6 @@
   border-radius: var(--border-radius-default);
 }
 
+.tasks-container > div {
+  position: relative;
+}

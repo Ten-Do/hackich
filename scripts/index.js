@@ -19,10 +19,12 @@ function createTaskCard(data) {
     month: "2-digit",
     year: "2-digit",
   });
-
+  container.addEventListener("click", () => {
+    showModal();
+  });
   // Create card content using template literals
   container.innerHTML = `
-  <div class="card" draggable="true">
+  <div class="card">
       <div class="card-header">
           <h2>${data.name}</h2>
           <p>Created by: ${data.creator.name}</p>
@@ -40,54 +42,6 @@ function createTaskCard(data) {
   // Append the card to a container in your HTML (e.g., by selecting a container element)
   return container;
 }
-
-const taskComponent = (data) => {
-  const mainDiv = document.createElement("div");
-  mainDiv.id = data.id;
-
-  // референс задачи
-  const taskParentDiv = document.createElement("div");
-  taskParentDiv.className = "task-parent";
-
-  // заголовок задачи
-  const taskHeadDiv = document.createElement("div");
-  taskHeadDiv.className = "task-head";
-
-  // // тот кто должен выполнять
-  // const taskWorkerDiv = document.createElement("div");
-  // taskWorkerDiv.className = "task-worker";
-  // taskWorkerDiv.innerText = data.lastName.at(0) + data.firstName.at(0);
-
-  // заголовок задачи
-  const taskDateDiv = document.createElement("div");
-  taskDateDiv.className = "task-date";
-  taskDateDiv.innerText = _getDate(data.endDate);
-
-  // инфа
-  const taskInfoDiv = document.createElement("div");
-  taskInfoDiv.className = "task-info";
-
-  // описание
-  const taskTextDiv = document.createElement("div");
-  taskTextDiv.className = "task-text";
-  taskTextDiv.innerText = data.description;
-
-  // теги
-  // const taskTagsDiv = document.createElement("div");
-  // taskTagsDiv.className = "task-tags";
-  // data.forEach(element => {
-
-  // });
-
-  // taskHeadDiv.appendChild(taskWorkerDiv);
-  taskHeadDiv.appendChild(taskDateDiv);
-  taskInfoDiv.appendChild(taskTextDiv);
-  // taskInfoDiv.appendChild(taskTagsDiv);
-  mainDiv.appendChild(taskParentDiv);
-  mainDiv.appendChild(taskHeadDiv);
-  mainDiv.appendChild(taskInfoDiv);
-  return mainDiv;
-};
 
 const _getDate = (stringDate) => {
   const date = new Date(stringDate);
@@ -136,33 +90,17 @@ const showModal = (children) => {
   const overlay = document.createElement("div");
   overlay.classList.add("modal-overlay");
   overlay.id = "modal-overlay";
-
-  overlay.innerHTML += `
-  <div class="modal-wrapper">
-  ${children}
-  </div>
-  `;
+  const header = document.createElement("h2");
+  header.innerText = "Выберите, куда перенести задачу.";
+  const wrapper = document.createElement("div");
+  wrapper.appendChild(header);
+  wrapper.classList.add("modal-wrapper");
+  const container = document.createElement("div");
+  for (let i = 0; i < 4; i++) {
+    container.innerHTML += `<div class="cat-btn">${i}</div>`;
+  }
+  wrapper.appendChild(container);
+  overlay.appendChild(wrapper);
   overlay.addEventListener("click", (e) => _onModalDismiss(e, overlay));
   document.body.appendChild(overlay);
 };
-
-// showModal(
-// );
-
-// DND
-const onDNDstart = (e) => {
-  // e.target.parentNode.appendChild();
-  document.querySelector(".open").classList.remove("open");
-};
-
-// const _optionsCard = () => {
-//   const optionCard = document.createElement("div");
-//   optionCard.classList.add("optionCard");
-//   optionCard.innerHTML = `
-//   <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">Drop Zone 1</div>
-//   <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">Drop Zone 2</div>
-//   <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">Drop Zone 3</div>
-//   <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">Drop Zone 4</div>
-
-//   `;
-// };
