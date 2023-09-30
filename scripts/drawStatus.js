@@ -4,9 +4,9 @@ function toggleDropdown(category) {
   dropdown.classList.toggle("open");
 }
 
-fetch('')
+fetch("")
   .then((res) =>
-    res.ok && 0? res.json() : ["inWork", "done", "planned", "closed"]
+    res.ok && 0 ? res.json() : ["inWork", "done", "planned", "closed"]
   )
   .then((data) => {
     const container = document.querySelector(".tasks");
@@ -16,7 +16,9 @@ fetch('')
       <div class="dropdown category" id="${element}">
       <div class="dropdown-btn" onclick="toggleDropdown('${element}')">
         <p>${element}</p>
-        <div class="counter">0</div>
+        <div class="addTask" onclick="() => {}">        
+          <img src="/assets/icons/add.svg" alt="Добавить" />
+        </div>
       </div>
       <div class="dropdown-content"></div>
     </div>

@@ -6,15 +6,28 @@
 .dropdown-btn {
   text-transform: uppercase;
   display: flex;
-  justify-content: center;
-  align-items: baseline;
+  justify-content: space-between;
+  align-items: center;
   gap: 0.5rem;
+}
+
+.dropdown-btn > p {
+  font-size: 1.7rem;
+  font-weight: 600;
 }
 
 .dropdown-btn > .counter {
   padding: 0.1rem 0.2rem;
   background-color: rgb(var(--color-light-gray));
   border-radius: var(--border-radius-chip);
+}
+
+.dropdown-btn .addTask {
+  height: 40px;
+}
+
+.dropdown-btn img {
+  height: 100%;
 }
 
 .dropdown-content {
