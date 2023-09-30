@@ -97,7 +97,7 @@ fetch("")
     let html = "";
     data.forEach((element) => {
       html += `
-      <div class="dropdown category" id="${element}">
+      <div class="dropdown category" id="${createValidVariableName(element)}">
       <div class="dropdown-btn" onclick="toggleDropdown('${element}')">
         <p>${element}</p>
         <div class="addTask" onclick="addTask(event)">        
@@ -110,3 +110,18 @@ fetch("")
     });
     container.innerHTML = html;
   });
+
+function createValidVariableName(str) {
+  // Remove any non-alphanumeric characters
+  const cleanedStr = str.replace(/[^a-zA-Z0-9_$]/g, "");
+
+  // Ensure the first character is a letter, underscore, or dollar sign
+  let validName = cleanedStr.charAt(0).match(/[a-zA-Z_$]/)
+    ? cleanedStr.charAt(0)
+    : "_";
+
+  // Replace any remaining spaces with underscores
+  validName += cleanedStr.slice(1).replace(/\s+/g, "_");
+
+  return validName;
+}

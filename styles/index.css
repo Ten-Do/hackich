@@ -9,7 +9,7 @@
 
 .head-text {
   font-weight: 800;
-  font-size: 1.3rem;
+  font-size: 1.8rem;
   line-height: 1.8rem;
 }
 
@@ -29,7 +29,7 @@
 .addCategory {
   cursor: pointer;
   margin-top: 30px;
-  height: 60px;
+  height: 70px;
   display: flex;
   justify-content: center;
 }

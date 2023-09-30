@@ -113,6 +113,7 @@ document.querySelector(".addCategory").addEventListener("click", () => {
   const inp = document.createElement("input");
   const btn = document.createElement("button");
   btn.innerText = "Добавить";
+  inp.placeholder = "forjuns"
   btn.addEventListener("click", () => {
     if (inp.value) {
       fetch("", {
@@ -125,6 +126,8 @@ document.querySelector(".addCategory").addEventListener("click", () => {
           throw new Error("smth went wrong");
         })
         .then(window.location.reload());
+    } else {
+      inp.style.borderColor = "red"
     }
   });
 
