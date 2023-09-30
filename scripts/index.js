@@ -52,19 +52,6 @@ const _getDate = (stringDate) => {
   return dateString;
 };
 
-const ct = {
-  inWork: document.getElementById("inWork"),
-  done: document.getElementById("done"),
-  planned: document.getElementById("planned"),
-  closed: document.getElementById("closed"),
-};
-
-function toggleDropdown(category) {
-  const dropdown = ct[category];
-
-  dropdown.classList.toggle("open");
-}
-
 window.addEventListener("load", () => {
   console.log("onload");
   fetch("jsons/data.json")
@@ -74,8 +61,8 @@ window.addEventListener("load", () => {
     })
     .then((data) => {
       console.log(data);
-      for (const key in ct) {
-        render_data(data, ct[key].querySelector(".dropdown-content"));
+      for (const elem of document.querySelectorAll(".dropdown-content")) {
+        render_data(data, elem);
       }
     })
     .catch((err) => console.log(err));
@@ -116,7 +103,7 @@ document.querySelector(".addCategory").addEventListener("click", () => {
   wrapper.classList.add("modal-wrapper");
   const inp = document.createElement("input");
   const btn = document.createElement("button");
-  btn.innerText = "Добавить"
+  btn.innerText = "Добавить";
   btn.addEventListener("click", () => {
     if (inp.value) {
       fetch("", {
