@@ -10,8 +10,7 @@ const render_data = (data, ref) => {
 
 function createTaskCard(data) {
   // Create a card container
-  var card = document.createElement("div");
-  card.className = "card";
+  var container = document.createElement("div");
 
   // Format the endDate to "DD.MM.YY" format
   var endDate = new Date(data.endDate);
@@ -22,7 +21,8 @@ function createTaskCard(data) {
   });
 
   // Create card content using template literals
-  card.innerHTML = `
+  container.innerHTML = `
+  <div class="card" draggable="true">
       <div class="card-header">
           <h2>${data.name}</h2>
           <p>Created by: ${data.creator.name}</p>
@@ -34,14 +34,11 @@ function createTaskCard(data) {
         <p>${data.taskNumber}</p>
         <p>Priority: ${data.priority}</p>
         <p>${formattedEndDate}</p>
-      </div>
+      </div></div>
   `;
 
-
-  
   // Append the card to a container in your HTML (e.g., by selecting a container element)
-  var container = document.getElementById("container"); // Update 'container' with your container ID
-  return card;
+  return container;
 }
 
 const taskComponent = (data) => {
@@ -129,3 +126,42 @@ window.addEventListener("load", () => {
     })
     .catch((err) => console.log(err));
 });
+
+// МОДАЛКА
+const _onModalDismiss = (e, overlay) => {
+  if (overlay === e.target) overlay.remove();
+};
+
+const showModal = (children) => {
+  const overlay = document.createElement("div");
+  overlay.classList.add("modal-overlay");
+  overlay.id = "modal-overlay";
+
+  overlay.innerHTML += `
+  <div class="modal-wrapper">
+  ${children}
+  </div>
+  `;
+  overlay.addEventListener("click", (e) => _onModalDismiss(e, overlay));
+  document.body.appendChild(overlay);
+};
+
+// showModal(
+// );
+
+// DND
+const onDNDstart = (e) => {
+  e.target.parentNode.appendChild(_optionsCard());
+};
+
+const _optionsCard = () => {
+  const optionCard = document.createElement("div");
+  optionCard.classList.add("optionCard");
+  optionCard.innerHTML = `
+  <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">Drop Zone 1</div>
+  <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">Drop Zone 2</div>
+  <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">Drop Zone 3</div>
+  <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">Drop Zone 4</div>
+  
+  `;
+};
