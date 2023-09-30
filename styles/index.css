@@ -24,7 +24,6 @@
   text-align: center;
   border: 1px solid rgba(var(--border-color), var(--border-opacity));
   border-radius: var(--border-radius-default);
-
 }
 
 .addCategory {
@@ -37,4 +36,32 @@
 
 .addCategory img {
   height: 100%;
+}
+
+.loader {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(var(--color-primary-black));
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: rgb(var(--color-ghost-white));
+}
+
+.loader h3 {
+  font-size: 2rem;
+}
+
+.loader img {
+  height: 20vh;
+}
+
+.hide {
+  opacity: 0;
+  transition: all 0.2s ease;
 }

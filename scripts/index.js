@@ -65,7 +65,16 @@ window.addEventListener("load", () => {
         render_data(data, elem);
       }
     })
-    .catch((err) => console.log(err));
+    .catch((err) => console.log(err))
+    .finally(() => {
+      setTimeout(() => {
+        const loader = document.querySelector(".loader");
+        loader.classList.add("hide");
+        setTimeout(() => {
+          loader.remove();
+        }, 200);
+      }, 1000);
+    });
 });
 
 // МОДАЛКА
