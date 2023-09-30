@@ -8,7 +8,7 @@
   right: 0;
   top: 0;
   bottom: 0;
-  background-color: rgba(var(--background-end-rgb), 0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   animation-name: appear;
   animation-duration: 300ms;
   overflow-y: scroll;
@@ -20,12 +20,10 @@
 
 .modal-wrapper {
   width: min-content;
-  font-family: var(--font-mono);
   height: fit-content;
-  border-radius: var(--border-radius);
-  background-color: rgba(var(--callout-rgba));
-  border: 2px solid rgba(var(--callout-border-rgba));
-  min-width: 100%;
+  border-radius: 16px;
+  background-color: rgb(var(--color-ghost-white));
+  border: 1px solid rgba(var(--border-color), var(--opacity));
   padding: 1.5rem;
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.5s;
@@ -54,10 +52,6 @@
 .modal-wrapper h5,
 .modal-wrapper h6 {
   margin-bottom: 1.2rem;
-}
-
-.modal-wrapper * {
-  font-family: var(--font-mono);
 }
 
 @keyframes appear {

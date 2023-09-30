@@ -1,85 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Custom Dropdown</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful Card with Drop Zones</title>
     <style>
-      .custom-dropdown {
-        position: relative;
-        display: inline-block;
-      }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-      .dropdown-button {
-        padding: 10px;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        cursor: pointer;
-        border-radius: 5px;
-      }
+        .card {
+            width: 400px;
+            border: 2px solid #007BFF;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
 
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #fff;
-        border: 1px solid #ccc;
-        z-index: 1;
-        width: 200px;
-      }
+        .drop-zone {
+            width: calc(50% - 10px); /* Two columns with 10px spacing */
+            min-height: 100px;
+            border: 2px dashed #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
 
-      .dropdown-item {
-        padding: 10px;
-        text-decoration: none;
-        color: #333;
-        display: block;
-      }
-
-      .dropdown-item:hover {
-        background-color: #007bff;
-        color: #fff;
-      }
-
-      .custom-dropdown.open .dropdown-content {
-        display: block;
-      }
+        .drop-zone:hover {
+            border-color: #007BFF;
+        }
     </style>
-  </head>
-  <body>
-    <div>
-      <button>Select an Option</button>
-      <div>
-        <a>Option 1</a>
-        <a>Option 2</a>
-        <a>Option 3</a>
-      </div>
+</head>
+<body>
+    <div class="card">
+        <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">Drop Zone 1</div>
+        <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">Drop Zone 2</div>
+        <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">Drop Zone 3</div>
+        <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">Drop Zone 4</div>
     </div>
 
     <script>
-      var dropdownOpen = false;
-
-      function toggleDropdown() {
-        var dropdown = document.getElementById("customDropdown");
-
-        if (dropdownOpen) {
-          dropdown.classList.remove("open");
-          dropdownOpen = false;
-        } else {
-          dropdown.classList.add("open");
-          dropdownOpen = true;
+        function allowDrop(event) {
+            event.preventDefault();
         }
-      }
-    </script>
 
-    <div>
-      <div class="task-parent"></div>
-      <div class="task-head">
-        <div class="task-worker"></div>
-      </div>
-      <div class="task-info">
-        <div class="task-text"></div>
-        <div class="task-tags"></div>
-      </div>
-    </div>
-  </body>
+        function drag(event) {
+            event.dataTransfer.setData("text", event.target.id);
+        }
+
+        function drop(event) {
+            event.preventDefault();
+            var data = event.dataTransfer.getData("text");
+            var target = event.target;
+            target.appendChild(document.getElementById(data));
+        }
+    </script>
+</body>
 </html>
