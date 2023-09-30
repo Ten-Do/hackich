@@ -1,0 +1,59 @@
+:root {
+  --font-stack: "Manrope", sans-serif;
+  --flame-primary: var(--color-purple);
+  --flame-secondary: var(--color-violet);
+  --flame-success: var(--color-green);
+  --flame-error: var(--color-red);
+  --flame-warning: var(--color-orange);
+  --flame-light: var(--color-gray-mouse);
+  --flame-transparent: var(--color-trasparent);
+  --color-trasparent: transparent;
+  --color-black: 0, 0, 0;
+  --color-white: 255, 255, 255;
+  --color-gray-bat: 40, 40, 51;
+  --color-dark-gray: 113, 114, 120;
+  --color-gray-mouse: 157, 157, 172;
+  --color-gray: 157, 157, 172;
+  --color-light-gray: 234, 234, 241;
+  --color-ghost-white: 250, 250, 255;
+  --color-dark-violet: 73, 61, 210;
+  --color-light-violet: 119, 109, 239;
+  --color-violet: 123, 104, 238;
+  --color-purple: 174, 76, 251;
+  --color-dark-grape: 94, 14, 157;
+  --color-red: 247, 104, 84;
+  --color-green: 91, 186, 75;
+  --color-orange: 253, 160, 120;
+  --color-gray-background: 245, 245, 250;
+  --color-primary-black: 33, 33, 42;
+  --color-yellow: 246, 196, 67;
+  --color-selector: 123, 104, 238;
+  --border-radius-reset: 0;
+  --border-radius-chip: 4px;
+  --border-radius-default: 8px;
+  --border-radius-middle: 12px;
+  --border-radius-full: 9999px;
+  --border-radius-circle: 100%;
+  --border-color: var(--color-black);
+  --border-opacity: var(--opacity);
+  --opacity: 0.12;
+  --dropdown-box-shadow: 0 4px 12px rgb(46 54 62 / 16%);
+  --btn-size-xs: 28px;
+  --btn-size-sm: 32px;
+  --btn-size-md: 40px;
+  --btn-size-lg: 48px;
+  --btn-hover-opacity: 0.2;
+}
+
+body {
+  color: rgb(var(--color-primary-black));
+  font-size: 14px;
+  font-family: var(--font-stack);
+  background-color: rgb(var(--color-gray-background)) !important;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+  cursor: pointer;
+}

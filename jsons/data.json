@@ -1,0 +1,289 @@
+[
+  {
+    "id": "65171666f074f999078a3f92",
+    "name": "Моя задача",
+    "creator": {
+      "id": "65171661879982c20f0b5cee",
+      "email": "y.skripnikov@outlook.com",
+      "avatar": "",
+      "name": "Янис Скрипников",
+      "firstName": "Янис",
+      "lastName": "Скрипников",
+      "surName": "Александрович",
+      "color": "#B3E745",
+      "rights": [],
+      "role": "user",
+      "createdAt": "2023-09-29T18:24:38.931Z",
+      "updatedAt": "2023-09-29T18:24:38.931Z"
+    },
+    "description": "Описание моей задачи",
+    "priority": "middle",
+    "columnId": "65171666f074f999078a3f87",
+    "status": [
+      "revision"
+    ],
+    "files": [],
+    "users": [
+      "65171661879982c20f0b5cee"
+    ],
+    "taskNumber": "AXS-0",
+    "views": 0,
+    "projectId": "65171666f074f999078a3f83",
+    "spaceId": "65171666f074f999078a3f80",
+    "boardId": "65171666f074f999078a3f85",
+    "dependenceOf": [],
+    "startDate": "2023-09-29T18:24:38.957Z",
+    "endDate": "2023-09-29T18:24:38.957Z",
+    "subTasks": [],
+    "spectators": [],
+    "createdAt": "2023-09-29T18:24:38.958Z",
+    "updatedAt": "2023-09-29T18:24:38.958Z",
+    "logs": []
+  },
+  {
+    "id": "65171666f074f999078a3f92",
+    "name": "Моя задача",
+    "creator": {
+      "id": "65171661879982c20f0b5cee",
+      "email": "y.skripnikov@outlook.com",
+      "avatar": "",
+      "name": "Янис Скрипников",
+      "firstName": "Янис",
+      "lastName": "Скрипников",
+      "surName": "Александрович",
+      "color": "#B3E745",
+      "rights": [],
+      "role": "user",
+      "createdAt": "2023-09-29T18:24:38.931Z",
+      "updatedAt": "2023-09-29T18:24:38.931Z"
+    },
+    "description": "Описание моей задачи",
+    "priority": "middle",
+    "columnId": "65171666f074f999078a3f87",
+    "status": [
+      "revision"
+    ],
+    "files": [],
+    "users": [
+      "65171661879982c20f0b5cee"
+    ],
+    "taskNumber": "AXS-0",
+    "views": 0,
+    "projectId": "65171666f074f999078a3f83",
+    "spaceId": "65171666f074f999078a3f80",
+    "boardId": "65171666f074f999078a3f85",
+    "dependenceOf": [],
+    "startDate": "2023-09-29T18:24:38.957Z",
+    "endDate": "2023-09-29T18:24:38.957Z",
+    "subTasks": [],
+    "spectators": [],
+    "createdAt": "2023-09-29T18:24:38.958Z",
+    "updatedAt": "2023-09-29T18:24:38.958Z",
+    "logs": []
+  },
+  {
+    "id": "65171666f074f999078a3f92",
+    "name": "Моя задача",
+    "creator": {
+      "id": "65171661879982c20f0b5cee",
+      "email": "y.skripnikov@outlook.com",
+      "avatar": "",
+      "name": "Янис Скрипников",
+      "firstName": "Янис",
+      "lastName": "Скрипников",
+      "surName": "Александрович",
+      "color": "#B3E745",
+      "rights": [],
+      "role": "user",
+      "createdAt": "2023-09-29T18:24:38.931Z",
+      "updatedAt": "2023-09-29T18:24:38.931Z"
+    },
+    "description": "Описание моей задачи",
+    "priority": "middle",
+    "columnId": "65171666f074f999078a3f87",
+    "status": [
+      "revision"
+    ],
+    "files": [],
+    "users": [
+      "65171661879982c20f0b5cee"
+    ],
+    "taskNumber": "AXS-0",
+    "views": 0,
+    "projectId": "65171666f074f999078a3f83",
+    "spaceId": "65171666f074f999078a3f80",
+    "boardId": "65171666f074f999078a3f85",
+    "dependenceOf": [],
+    "startDate": "2023-09-29T18:24:38.957Z",
+    "endDate": "2023-09-29T18:24:38.957Z",
+    "subTasks": [],
+    "spectators": [],
+    "createdAt": "2023-09-29T18:24:38.958Z",
+    "updatedAt": "2023-09-29T18:24:38.958Z",
+    "logs": []
+  },
+  {
+    "id": "65171666f074f999078a3f92",
+    "name": "Моя задача",
+    "creator": {
+      "id": "65171661879982c20f0b5cee",
+      "email": "y.skripnikov@outlook.com",
+      "avatar": "",
+      "name": "Янис Скрипников",
+      "firstName": "Янис",
+      "lastName": "Скрипников",
+      "surName": "Александрович",
+      "color": "#B3E745",
+      "rights": [],
+      "role": "user",
+      "createdAt": "2023-09-29T18:24:38.931Z",
+      "updatedAt": "2023-09-29T18:24:38.931Z"
+    },
+    "description": "Описание моей задачи",
+    "priority": "middle",
+    "columnId": "65171666f074f999078a3f87",
+    "status": [
+      "revision"
+    ],
+    "files": [],
+    "users": [
+      "65171661879982c20f0b5cee"
+    ],
+    "taskNumber": "AXS-0",
+    "views": 0,
+    "projectId": "65171666f074f999078a3f83",
+    "spaceId": "65171666f074f999078a3f80",
+    "boardId": "65171666f074f999078a3f85",
+    "dependenceOf": [],
+    "startDate": "2023-09-29T18:24:38.957Z",
+    "endDate": "2023-09-29T18:24:38.957Z",
+    "subTasks": [],
+    "spectators": [],
+    "createdAt": "2023-09-29T18:24:38.958Z",
+    "updatedAt": "2023-09-29T18:24:38.958Z",
+    "logs": []
+  },
+  {
+    "id": "65171666f074f999078a3f92",
+    "name": "Моя задача",
+    "creator": {
+      "id": "65171661879982c20f0b5cee",
+      "email": "y.skripnikov@outlook.com",
+      "avatar": "",
+      "name": "Янис Скрипников",
+      "firstName": "Янис",
+      "lastName": "Скрипников",
+      "surName": "Александрович",
+      "color": "#B3E745",
+      "rights": [],
+      "role": "user",
+      "createdAt": "2023-09-29T18:24:38.931Z",
+      "updatedAt": "2023-09-29T18:24:38.931Z"
+    },
+    "description": "Описание моей задачи",
+    "priority": "middle",
+    "columnId": "65171666f074f999078a3f87",
+    "status": [
+      "revision"
+    ],
+    "files": [],
+    "users": [
+      "65171661879982c20f0b5cee"
+    ],
+    "taskNumber": "AXS-0",
+    "views": 0,
+    "projectId": "65171666f074f999078a3f83",
+    "spaceId": "65171666f074f999078a3f80",
+    "boardId": "65171666f074f999078a3f85",
+    "dependenceOf": [],
+    "startDate": "2023-09-29T18:24:38.957Z",
+    "endDate": "2023-09-29T18:24:38.957Z",
+    "subTasks": [],
+    "spectators": [],
+    "createdAt": "2023-09-29T18:24:38.958Z",
+    "updatedAt": "2023-09-29T18:24:38.958Z",
+    "logs": []
+  },
+  {
+    "id": "65171666f074f999078a3f92",
+    "name": "Моя задача",
+    "creator": {
+      "id": "65171661879982c20f0b5cee",
+      "email": "y.skripnikov@outlook.com",
+      "avatar": "",
+      "name": "Янис Скрипников",
+      "firstName": "Янис",
+      "lastName": "Скрипников",
+      "surName": "Александрович",
+      "color": "#B3E745",
+      "rights": [],
+      "role": "user",
+      "createdAt": "2023-09-29T18:24:38.931Z",
+      "updatedAt": "2023-09-29T18:24:38.931Z"
+    },
+    "description": "Описание моей задачи",
+    "priority": "middle",
+    "columnId": "65171666f074f999078a3f87",
+    "status": [
+      "revision"
+    ],
+    "files": [],
+    "users": [
+      "65171661879982c20f0b5cee"
+    ],
+    "taskNumber": "AXS-0",
+    "views": 0,
+    "projectId": "65171666f074f999078a3f83",
+    "spaceId": "65171666f074f999078a3f80",
+    "boardId": "65171666f074f999078a3f85",
+    "dependenceOf": [],
+    "startDate": "2023-09-29T18:24:38.957Z",
+    "endDate": "2023-09-29T18:24:38.957Z",
+    "subTasks": [],
+    "spectators": [],
+    "createdAt": "2023-09-29T18:24:38.958Z",
+    "updatedAt": "2023-09-29T18:24:38.958Z",
+    "logs": []
+  },
+  {
+    "id": "65171666f074f999078a3f92",
+    "name": "Моя задача",
+    "creator": {
+      "id": "65171661879982c20f0b5cee",
+      "email": "y.skripnikov@outlook.com",
+      "avatar": "",
+      "name": "Янис Скрипников",
+      "firstName": "Янис",
+      "lastName": "Скрипников",
+      "surName": "Александрович",
+      "color": "#B3E745",
+      "rights": [],
+      "role": "user",
+      "createdAt": "2023-09-29T18:24:38.931Z",
+      "updatedAt": "2023-09-29T18:24:38.931Z"
+    },
+    "description": "Описание моей задачи",
+    "priority": "middle",
+    "columnId": "65171666f074f999078a3f87",
+    "status": [
+      "revision"
+    ],
+    "files": [],
+    "users": [
+      "65171661879982c20f0b5cee"
+    ],
+    "taskNumber": "AXS-0",
+    "views": 0,
+    "projectId": "65171666f074f999078a3f83",
+    "spaceId": "65171666f074f999078a3f80",
+    "boardId": "65171666f074f999078a3f85",
+    "dependenceOf": [],
+    "startDate": "2023-09-29T18:24:38.957Z",
+    "endDate": "2023-09-29T18:24:38.957Z",
+    "subTasks": [],
+    "spectators": [],
+    "createdAt": "2023-09-29T18:24:38.958Z",
+    "updatedAt": "2023-09-29T18:24:38.958Z",
+    "logs": []
+  }
+]

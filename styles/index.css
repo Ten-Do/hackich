@@ -1,0 +1,28 @@
+.header {
+  padding-top: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  gap: 8px;
+}
+
+.head-text {
+  font-weight: 800;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+}
+
+.tasks {
+  margin: 0 10px;
+}
+
+.category {
+  margin-top: 20px;
+  padding: 10px 16px;
+  min-width: 100%;
+  text-align: center;
+  border: 1px solid rgba(var(--border-color), var(--border-opacity));
+  border-radius: var(--border-radius-default);
+}
+

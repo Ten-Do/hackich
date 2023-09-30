@@ -1,0 +1,52 @@
+/* CSS for the generated card (cfrd) */
+.card {
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: rgb(var(--color-ghost-white));
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+.card-header {
+  background-color: rgb(var(--flame-primary));
+  color: rgb(var(--color-ghost-white));
+  padding: 10px;
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.card-header p {
+  color: rgba(var(--color-ghost-white), 0.7);
+  margin-top: 5px;
+  font-size: 0.9rem;
+}
+
+.card-description p {
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+.card-details {
+  margin: 20px 20px 6px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-details p {
+  /* margin: 5px 0; */
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+/* Hover effect for the card */
+.card:hover {
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+  transition: all 0.3s ease-in-out;
+}

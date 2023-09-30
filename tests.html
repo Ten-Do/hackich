@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Dropdown</title>
+    <style>
+      .custom-dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropdown-button {
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        z-index: 1;
+        width: 200px;
+      }
+
+      .dropdown-item {
+        padding: 10px;
+        text-decoration: none;
+        color: #333;
+        display: block;
+      }
+
+      .dropdown-item:hover {
+        background-color: #007bff;
+        color: #fff;
+      }
+
+      .custom-dropdown.open .dropdown-content {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button>Select an Option</button>
+      <div>
+        <a>Option 1</a>
+        <a>Option 2</a>
+        <a>Option 3</a>
+      </div>
+    </div>
+
+    <script>
+      var dropdownOpen = false;
+
+      function toggleDropdown() {
+        var dropdown = document.getElementById("customDropdown");
+
+        if (dropdownOpen) {
+          dropdown.classList.remove("open");
+          dropdownOpen = false;
+        } else {
+          dropdown.classList.add("open");
+          dropdownOpen = true;
+        }
+      }
+    </script>
+
+    <div>
+      <div class="task-parent"></div>
+      <div class="task-head">
+        <div class="task-worker"></div>
+      </div>
+      <div class="task-info">
+        <div class="task-text"></div>
+        <div class="task-tags"></div>
+      </div>
+    </div>
+  </body>
+</html>

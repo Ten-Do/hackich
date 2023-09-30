@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/codebase/dhtmlxgantt.js?v=8.0.4"></script>
+    <title>TeamFlame</title>
+    <link rel="stylesheet" href="styles/reset.css" />
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/dropdown.css" />
+    <link rel="stylesheet" href="styles/taskComponent.css" />
+    <link rel="stylesheet" href="styles/index.css" />
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"> -->
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <svg
+          width="40"
+          height="40"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="transparent"
+          viewBox="0 0 40 40"
+        >
+          <g xmlns="http://www.w3.org/2000/svg" clip-path="url(#clip0_234_852)">
+            <path
+              d="M8.80998 30.53L10.2 31.92C11.4799 33.2178 13.006 34.2471 14.6888 34.9477C16.3715 35.6483 18.1772 36.006 20 36C23.5555 35.9433 26.9504 34.5093 29.47 32L30.84 30.63C32.5926 28.337 33.5816 25.552 33.6677 22.6672C33.7538 19.7824 32.9327 16.9434 31.32 14.55C31.22 14.4 31.1 14.26 31 14.1C29.2322 11.6495 27.2583 9.35453 25.1 7.23996C23.94 6.07996 21.4 3.64996 20.19 3.99996C18.98 4.34996 19.52 8.08996 17.89 12.54C16.32 16.88 15 17.31 13.53 17C10.22 16 12.85 11.25 11.85 11.25C11.11 11.29 9.99998 12.45 9.99998 12.45C7.64982 14.8107 6.23439 17.9429 6.01561 21.2669C5.79683 24.5908 6.78952 27.8815 8.80998 30.53Z"
+              fill="#AE4CFB"
+            ></path>
+            <path
+              d="M15.55 31.6999L16.1 32.2899C16.5692 32.8219 17.1463 33.248 17.7928 33.5399C18.4394 33.8317 19.1406 33.9827 19.85 33.9827C20.5594 33.9827 21.2607 33.8317 21.9072 33.5399C22.5538 33.248 23.1308 32.8219 23.6 32.2899L24.13 31.7099C24.9199 30.5719 25.3031 29.2009 25.2178 27.8183C25.1325 26.4357 24.5837 25.1222 23.66 24.0899C23.66 24.0899 22.42 22.6199 22 22.1499C21.58 21.6799 20.25 20.3699 20.25 20.3699C20.2014 20.3178 20.1425 20.2763 20.0772 20.2479C20.0118 20.2195 19.9413 20.2048 19.87 20.2048C19.7987 20.2048 19.7282 20.2195 19.6629 20.2479C19.5975 20.2763 19.5387 20.3178 19.49 20.3699C19.49 20.3699 18.14 21.7299 17.68 22.2199C17.22 22.7099 16 24.0899 16 24.0899C15.0817 25.1237 14.5381 26.4365 14.4564 27.8169C14.3748 29.1973 14.76 30.565 15.55 31.6999Z"
+              fill="white"
+            ></path>
+          </g>
+          <defs xmlns="http://www.w3.org/2000/svg">
+            <clipPath id="clip0_234_852">
+              <rect
+                width="27.69"
+                height="31.96"
+                fill="white"
+                transform="translate(6 4)"
+              ></rect>
+            </clipPath>
+          </defs>
+        </svg>
+        <h3 class="head-text">TeamFlame</h3>
+      </header>
+      <div class="tasks">
+        <div class="dropdown category" id="inWork">
+          <div class="dropdown-btn" onclick="toggleDropdown('inWork')">
+            <p>В работе</p>
+            <div class="counter">0</div>
+          </div>
+          <div class="dropdown-content"></div>
+        </div>
+        <div class="dropdown category" id="done">
+          <div class="dropdown-btn" onclick="toggleDropdown('done')">
+            <p>Сделано</p>
+            <div class="counter">0</div>
+          </div>
+          <div class="dropdown-content"></div>
+        </div>
+        <div class="dropdown category" id="planned">
+          <div class="dropdown-btn" onclick="toggleDropdown('planned')">
+            <p>Сделать</p>
+            <div class="counter">0</div>
+          </div>
+          <div class="dropdown-content"></div>
+        </div>
+        <div class="dropdown category" id="closed">
+          <div class="dropdown-btn" onclick="toggleDropdown('closed')">
+            <p>Закрыто</p>
+            <div class="counter">0</div>
+          </div>
+          <div class="dropdown-content"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script src="/scripts/index.js"></script>
+
+</html>
