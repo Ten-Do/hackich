@@ -104,3 +104,37 @@ const showModal = (children) => {
   overlay.addEventListener("click", (e) => _onModalDismiss(e, overlay));
   document.body.appendChild(overlay);
 };
+
+document.querySelector(".addCategory").addEventListener("click", () => {
+  const overlay = document.createElement("div");
+  overlay.classList.add("modal-overlay");
+  overlay.id = "modal-overlay";
+  const header = document.createElement("h2");
+  header.innerText = "Введите название для нового статуса";
+  const wrapper = document.createElement("div");
+  wrapper.appendChild(header);
+  wrapper.classList.add("modal-wrapper");
+  const inp = document.createElement("input");
+  const btn = document.createElement("button");
+  btn.innerText = "Добавить"
+  btn.addEventListener("click", () => {
+    if (inp.value) {
+      fetch("", {
+        body: JSON.stringify({
+          value: inp.value,
+        }),
+      })
+        .then((res) => {
+          if (res.ok) return res.json();
+          throw new Error("smth went wrong");
+        })
+        .then(window.location.reload());
+    }
+  });
+
+  wrapper.appendChild(inp);
+  wrapper.appendChild(btn);
+  overlay.appendChild(wrapper);
+  overlay.addEventListener("click", (e) => _onModalDismiss(e, overlay));
+  document.body.appendChild(overlay);
+});
