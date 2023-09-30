@@ -19,6 +19,7 @@
 }
 
 .modal-wrapper {
+  min-width: 70vw;
   width: min-content;
   height: fit-content;
   border-radius: 16px;
@@ -41,7 +42,7 @@
   }
 }
 
-.modal-wrapper > div {
+.modal-wrapper > div:not(.form-container) {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
@@ -65,6 +66,7 @@
 .modal-wrapper h5,
 .modal-wrapper h6 {
   margin-bottom: 1.2rem;
+  font-size: 1.5rem;
 }
 
 @keyframes appear {
@@ -89,4 +91,37 @@
   border-radius: 10px;
   border: 1px solid rgb(var(--color-light-violet));
   padding: 8px;
+}
+
+/*  */
+
+/* styles.css */
+
+
+.form-container label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-container input[type="text"],
+.form-container textarea,
+.form-container select,
+.form-container input[type="date"] {
+  min-width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.form-container button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
 }
