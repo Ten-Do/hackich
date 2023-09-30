@@ -151,17 +151,18 @@ const showModal = (children) => {
 
 // DND
 const onDNDstart = (e) => {
-  e.target.parentNode.appendChild(_optionsCard());
+  // e.target.parentNode.appendChild();
+  document.querySelector(".open").classList.remove("open");
 };
 
-const _optionsCard = () => {
-  const optionCard = document.createElement("div");
-  optionCard.classList.add("optionCard");
-  optionCard.innerHTML = `
-  <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">Drop Zone 1</div>
-  <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">Drop Zone 2</div>
-  <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">Drop Zone 3</div>
-  <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">Drop Zone 4</div>
-  
-  `;
-};
+// const _optionsCard = () => {
+//   const optionCard = document.createElement("div");
+//   optionCard.classList.add("optionCard");
+//   optionCard.innerHTML = `
+//   <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">Drop Zone 1</div>
+//   <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">Drop Zone 2</div>
+//   <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">Drop Zone 3</div>
+//   <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">Drop Zone 4</div>
+
+//   `;
+// };

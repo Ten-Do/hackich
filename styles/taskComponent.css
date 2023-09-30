@@ -46,8 +46,8 @@
 }
 
 /* Hover effect for the card */
-.card:hover {
+/* .card:hover {
   box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
   transition: all 0.3s ease-in-out;
-}
+} */
