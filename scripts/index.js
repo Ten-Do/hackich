@@ -137,7 +137,6 @@ const showAddTaskModal = (status) => {
   });
   //
 
-
   wrapper.appendChild(formContainer);
   overlay.appendChild(wrapper);
   overlay.addEventListener("click", (e) => _onModalDismiss(e, overlay));
@@ -303,8 +302,12 @@ const _onModalDismiss = (e, overlay) => {
 };
 
 const changeColumn = async (columnId, taskId) => {
-  getter('change_column', {"columnId": columnId})
-} 
+  getter("change_column", {
+    columnId: columnId,
+    task_id: taskId,
+    location: window.fetchedData.boardId,
+  }).then(window.location.reload());
+};
 
 const showModal = (taskId) => {
   const overlay = document.createElement("div");
@@ -317,7 +320,7 @@ const showModal = (taskId) => {
   wrapper.classList.add("modal-wrapper");
   const container = document.createElement("div");
   for (let column of window.fetchedData) {
-    container.innerHTML += `<div class="cat-btn" onclick="changeColumn(${column.id}, ${678})">${column.name}</div>`;
+    container.innerHTML += `<div class="cat-btn" onclick="changeColumn(${column.id}, ${taskId})">${column.name}</div>`;
   }
   wrapper.appendChild(container);
   overlay.appendChild(wrapper);
@@ -390,5 +393,3 @@ const fetchTasks = async () => {
     })
     .catch((err) => errorModal(err.message));
 };
-
-
