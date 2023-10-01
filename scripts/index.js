@@ -128,7 +128,7 @@ const showAddTaskModal = (status) => {
     const jsonData = JSON.stringify(formObject);
 
     // You now have a JSON representation of the form data
-    errorModal(JSON.stringify(data))
+    errorModal(jsonData)
     getter("create_task", jsonData)
       .then((data) => {
         console.log(data);
