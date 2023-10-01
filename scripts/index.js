@@ -131,7 +131,8 @@ const showAddTaskModal = (status) => {
     getter("create_task", jsonData)
       .then((data) => {
         console.log(data);
-        window.location.reload();
+        errorModal(JSON.stringify(data))
+        // window.location.reload();
       })
       .catch((err) => errorModal(err.message));
 
@@ -387,3 +388,6 @@ const fetchTasks = async () => {
     })
     .catch((err) => errorModal(err.message));
 };
+
+
+getter()
