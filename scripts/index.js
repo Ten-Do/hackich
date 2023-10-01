@@ -69,7 +69,7 @@ const _getDate = (stringDate) => {
   const dateString = `${day}.${month}.${year}`;
   return dateString;
 };
-const getData = async () => localStorage.getItem("data");
+const getData = async () => window.fetchedData;
 window.addEventListener("load", () => {
   // HERE!
 

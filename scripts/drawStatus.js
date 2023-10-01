@@ -130,7 +130,7 @@ getter("get_columns_by_user_id")
   // )
   .then((data) => {
     console.log("RESPONSE: ", data);
-    localStorage.setItem("data", data);
+    window.fetchedData = data;
     const container = document.querySelector(".tasks");
     let html = "";
     data.forEach(({ name }) => {
