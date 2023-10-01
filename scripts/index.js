@@ -159,7 +159,7 @@ const getter = async (url, body) => {
     .then((res) => {
       return res.json();
     })
-    .catch((err) => errorModal(err.message));
+    .catch((err) => console.log(err.message));
 };
 
 getter("get_columns_by_user_id")
@@ -211,7 +211,7 @@ getter("get_columns_by_user_id")
       }, 200);
     }, 1000);
   })
-  .catch((err) => errorModal(err.message));
+  .catch((err) => console.log(err.message));
 
 function createValidVariableName(str) {
   // Remove any non-alphanumeric characters
@@ -302,20 +302,12 @@ const _onModalDismiss = (e, overlay) => {
 };
 
 const changeColumn = async (columnId, taskId) => {
-  errorModal(
-    "DATA = " +
-      JSON.stringify({
-        columnId: columnId,
-        task_id: taskId,
-        location: window.fetchedData.boardId,
-      })
-  );
   getter("change_column", {
     columnId: columnId,
     task_id: taskId,
     location: window.fetchedData.boardId,
   })
-    // .then(window.location.reload())
+    .then(window.location.reload())
     .catch((err) => errorModal("ERR = " + err.message));
 };
 
@@ -394,12 +386,4 @@ document.querySelector(".addCategory").addEventListener("click", () => {
 //   }).then((res) => res.json());
 // };
 
-const fetchTasks = async () => {
-  getter("column")
-    .then((data) => {
-      if (!data.board_id) {
-        errorModal("Сначала выберите доску в тг боте");
-      }
-    })
-    .catch((err) => errorModal(err.message));
-};
+
