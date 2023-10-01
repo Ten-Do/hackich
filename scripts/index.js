@@ -70,13 +70,14 @@ const _getDate = (stringDate) => {
   const dateString = `${day}.${month}.${year}`;
   return dateString;
 };
-const getData = async () => window.fetchedData;
 window.addEventListener("load", () => {
   // HERE!
 
-  getData()
+  Promise.resolve(window.fetchedData)
     .then((data) => {
+      console.log('1: ', data);
       for (const column of data) {
+        console.log('col: ', column);
         render_data(
           column.tasks,
           document.getElementById(createValidVariableName(column.name))
