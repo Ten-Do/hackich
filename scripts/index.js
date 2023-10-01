@@ -125,11 +125,11 @@ const showAddTaskModal = (status) => {
       (elem) => elem.name.toUpperCase() === status.toUpperCase()
     )[0].boardId;
     // Convert the formObject to JSON
-    const jsonData = JSON.stringify(formObject);
+    const jsonData = ;
 
     // You now have a JSON representation of the form data
-    errorModal(jsonData)
-    getter("create_task", jsonData)
+    errorModal(formObject);
+    getter("create_task", formObject)
       .then((data) => {
         console.log(data);
         // window.location.reload();
@@ -389,5 +389,14 @@ const fetchTasks = async () => {
     .catch((err) => errorModal(err.message));
 };
 
-
-getter()
+const d = {
+  name: "rfgtyhuio",
+  description: "dfghjkl",
+  priority: "low",
+  endDate: "2023-10-18",
+  status: ["Закрыто"],
+  columnId: "6518e70fbca6d15e876bc711",
+  user_id: "1748353606",
+  startDate: "2023-10-01T10:48:52",
+  location: "6518e70fbca6d15e876bc70c",
+};
