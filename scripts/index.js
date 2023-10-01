@@ -18,8 +18,8 @@ const errorModal = (message) => {
 };
 
 const fields = [
-  { label: "Task Name:", type: "text", name: "taskName", required: true },
-  { label: "Task Description:", type: "textarea", name: "taskDescription" },
+  { label: "Task Name:", type: "text", name: "name", required: true },
+  { label: "Task Description:", type: "textarea", name: "description" },
   {
     label: "Priority:",
     type: "select",
@@ -35,7 +35,7 @@ function toggleDropdown(category) {
   dropdown.classList.toggle("open");
 }
 
-const showAddTaskModal = (children) => {
+const showAddTaskModal = (status) => {
   const overlay = document.createElement("div");
   overlay.classList.add("modal-overlay");
   overlay.id = "modal-overlay";
@@ -91,7 +91,25 @@ const showAddTaskModal = (children) => {
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    console.log(e);
+
+    // Get the FormData object
+    const formData = new FormData(form);
+
+    // Convert FormData to a plain JavaScript object
+    const formObject = {};
+    formData.forEach((value, key) => {
+      formObject[key + ''] = value + '';
+    });
+    formObject.status = [status]
+    formObject.columnId = winow.fetchedData.
+    // Convert the formObject to JSON
+    const jsonData = JSON.stringify(formObject);
+
+    // You now have a JSON representation of the form data
+    console.log(jsonData);
+
+    // Handle form submission here or send the jsonData to the server
+
   });
   //
 
@@ -103,7 +121,7 @@ const showAddTaskModal = (children) => {
 
 function addTask(e, status) {
   e.stopPropagation();
-  showAddTaskModal();
+  showAddTaskModal(status);
 }
 const getter = async (url, body) => {
   console.log({
@@ -140,7 +158,7 @@ getter("get_columns_by_user_id")
         name
       )}')">
         <p>${name}</p>
-        <div class="addTask" onclick="addTask(event)">        
+        <div class="addTask" onclick="addTask(event, '${name}')">        
           <img src="/assets/icons/add.svg" alt="Добавить" />
         </div>
       </div>
@@ -154,6 +172,7 @@ getter("get_columns_by_user_id")
   .then((data) => {
     console.log("1: ", data);
     for (const column of data) {
+      console.log("col: ", column);
       render_data(
         column.tasks,
         document
