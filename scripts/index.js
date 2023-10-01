@@ -104,7 +104,7 @@ const showAddTaskModal = (status) => {
     formObject.columnId = window.fetchedData.filter(
       (elem) => elem.name === status
     )[0].id;
-    formObject.user_id = TG.initDataUnsafe?.user?.id;
+    formObject.user_id = TG.initDataUnsafe?.user?.id + '';
     const now = new Date();
     const year = now.getFullYear();
     const month = (now.getMonth() + 1).toString().padStart(2, "0");
@@ -145,7 +145,7 @@ const getter = async (url, body) => {
   return await fetch("https://innoglobalhack.site/api/" + url, {
     method: "POST",
     body: JSON.stringify({
-      user_id: TG.initDataUnsafe?.user?.id,
+      user_id: TG.initDataUnsafe?.user?.id + '',
       ...body,
     }),
     headers: { "Content-Type": "application/json" },
