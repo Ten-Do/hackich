@@ -317,7 +317,7 @@ const showModal = (taskId) => {
   wrapper.classList.add("modal-wrapper");
   const container = document.createElement("div");
   for (let column of window.fetchedData) {
-    container.innerHTML += `<div class="cat-btn" onclick="changeColumn(${column.id}, ${})">${column.name}</div>`;
+    container.innerHTML += `<div class="cat-btn" onclick="changeColumn(${column.id}, ${678})">${column.name}</div>`;
   }
   wrapper.appendChild(container);
   overlay.appendChild(wrapper);
