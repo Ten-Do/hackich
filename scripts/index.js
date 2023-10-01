@@ -156,7 +156,7 @@ getter("get_columns_by_user_id")
     for (const column of data) {
       render_data(
         column.tasks,
-        document.getElementById(createValidVariableName(column.name))
+        document.getElementById(createValidVariableName(column.name).querySelector('.dropdown-content'))
       );
     }
   })
@@ -254,30 +254,6 @@ const _getDate = (stringDate) => {
   const dateString = `${day}.${month}.${year}`;
   return dateString;
 };
-// window.addEventListener("load", () => {
-//   // HERE!
-
-//   Promise.resolve(window.fetchedData)
-//     .then((data) => {
-//       console.log("1: ", data);
-//       for (const column of data) {
-//         render_data(
-//           column.tasks,
-//           document.getElementById(createValidVariableName(column.name))
-//         );
-//       }
-//     })
-//     .catch((err) => errorModal(err.message))
-//     .finally(() => {
-//       setTimeout(() => {
-//         const loader = document.querySelector(".loader");
-//         loader.classList.add("hide");
-//         setTimeout(() => {
-//           loader.remove();
-//         }, 200);
-//       }, 1000);
-//     });
-// });
 
 // МОДАЛКА
 const _onModalDismiss = (e, overlay) => {
