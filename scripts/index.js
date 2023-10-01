@@ -9,9 +9,13 @@ const errorModal = (message) => {
   const wrapper = document.createElement("div");
   wrapper.appendChild(header);
   wrapper.classList.add("modal-wrapper");
-  const container = document.createElement("p");
-  container.innerText = message;
-  wrapper.appendChild(container);
+  const p1 = document.createElement("p");
+  p1.innerText = message;
+  wrapper.appendChild(p1);
+  const p2 = document.createElement("p");
+  p2.innerText =
+    "Убедитесь, что вы вошли в свою учетную запись и выбрали доску в меню бота";
+  wrapper.appendChild(p2);
   overlay.appendChild(wrapper);
   overlay.addEventListener("click", (e) => _onModalDismiss(e, overlay));
   document.body.appendChild(overlay);
@@ -100,11 +104,15 @@ const showAddTaskModal = (status) => {
     formData.forEach((value, key) => {
       formObject[key + ""] = value + "";
     });
-    formObject.status = [status];
+    formObject.status = [
+      window.fetchedData.filter(
+        (elem) => elem.name.toUpperCase() === status.toUpperCase()
+      )[0].name,
+    ];
     formObject.columnId = window.fetchedData.filter(
-      (elem) => elem.name === status
+      (elem) => elem.name.toUpperCase() === status.toUpperCase()
     )[0].id;
-    formObject.user_id = TG.initDataUnsafe?.user?.id + '';
+    formObject.user_id = TG.initDataUnsafe?.user?.id + "";
     const now = new Date();
     const year = now.getFullYear();
     const month = (now.getMonth() + 1).toString().padStart(2, "0");
@@ -114,7 +122,7 @@ const showAddTaskModal = (status) => {
     const seconds = now.getSeconds().toString().padStart(2, "0");
     formObject.startDate = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
     formObject.location = window.fetchedData.filter(
-      (elem) => elem.name === status
+      (elem) => elem.name.toUpperCase() === status.toUpperCase()
     )[0].boardId;
     // Convert the formObject to JSON
     const jsonData = JSON.stringify(formObject);
@@ -145,7 +153,7 @@ const getter = async (url, body) => {
   return await fetch("https://innoglobalhack.site/api/" + url, {
     method: "POST",
     body: JSON.stringify({
-      user_id: TG.initDataUnsafe?.user?.id + '',
+      user_id: TG.initDataUnsafe?.user?.id + "",
       ...body,
     }),
     headers: { "Content-Type": "application/json" },
@@ -153,7 +161,7 @@ const getter = async (url, body) => {
     .then((res) => {
       return res.json();
     })
-    .catch((err) => console.log(err));
+    .catch((err) => errorModal(err.message));
 };
 
 getter("get_columns_by_user_id")
