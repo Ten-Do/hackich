@@ -316,7 +316,7 @@ const changeColumn = async (columnId, taskId) => {
     location: window.fetchedData.boardId,
   })
     .then(window.location.reload())
-    .catch((err) => errorModal('ERR = ' + err.message));
+    .catch((err) => errorModal("ERR = " + err.message));
 };
 
 const showModal = (taskId) => {
@@ -330,7 +330,7 @@ const showModal = (taskId) => {
   wrapper.classList.add("modal-wrapper");
   const container = document.createElement("div");
   for (let column of window.fetchedData) {
-    container.innerHTML += `<div class="cat-btn" onclick="changeColumn(${column.id}, ${taskId})">${column.name}</div>`;
+    container.innerHTML += `<div class="cat-btn" onclick="changeColumn('${column.id}', '${taskId}')">${column.name}</div>`;
   }
   wrapper.appendChild(container);
   overlay.appendChild(wrapper);
