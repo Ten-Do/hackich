@@ -119,7 +119,6 @@ const getter = async (url, body) => {
     headers: { "Content-Type": "application/json" },
   })
     .then((res) => {
-      console.log("RESPONSE: ", res);
       return res.json();
     })
     .catch((err) => console.log(err));
@@ -130,6 +129,7 @@ getter("get_columns_by_user_id")
   //   res.ok && 0 ? res.json() : ["inWork", "done", "planned", "closed"]
   // )
   .then((data) => {
+    console.log("RESPONSE: ", data);
     localStorage.setItem("data", data);
     const container = document.querySelector(".tasks");
     let html = "";
