@@ -156,7 +156,9 @@ getter("get_columns_by_user_id")
     for (const column of data) {
       render_data(
         column.tasks,
-        document.getElementById(createValidVariableName(column.name).querySelector('.dropdown-content'))
+        document
+          .getElementById(createValidVariableName(column.name))
+          .querySelector(".dropdown-content")
       );
     }
   })
