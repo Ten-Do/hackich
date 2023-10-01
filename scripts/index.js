@@ -137,6 +137,7 @@ const showAddTaskModal = (status) => {
   });
   //
 
+
   wrapper.appendChild(formContainer);
   overlay.appendChild(wrapper);
   overlay.addEventListener("click", (e) => _onModalDismiss(e, overlay));
@@ -264,7 +265,7 @@ function createTaskCard(data) {
     year: "2-digit",
   });
   container.addEventListener("click", () => {
-    showModal();
+    showModal(data.id);
   });
   // Create card content using template literals
   container.innerHTML = `
@@ -301,7 +302,11 @@ const _onModalDismiss = (e, overlay) => {
   if (overlay === e.target) overlay.remove();
 };
 
-const showModal = (children) => {
+const changeColumn = async (columnId, taskId) => {
+  getter('change_column', {"columnId": columnId})
+} 
+
+const showModal = (taskId) => {
   const overlay = document.createElement("div");
   overlay.classList.add("modal-overlay");
   overlay.id = "modal-overlay";
@@ -312,7 +317,7 @@ const showModal = (children) => {
   wrapper.classList.add("modal-wrapper");
   const container = document.createElement("div");
   for (let column of window.fetchedData) {
-    container.innerHTML += `<div class="cat-btn">${column.name}</div>`;
+    container.innerHTML += `<div class="cat-btn" onclick="changeColumn(${column.id}, ${})">${column.name}</div>`;
   }
   wrapper.appendChild(container);
   overlay.appendChild(wrapper);
@@ -386,14 +391,4 @@ const fetchTasks = async () => {
     .catch((err) => errorModal(err.message));
 };
 
-const d = {
-  name: "rfgtyhuio",
-  description: "dfghjkl",
-  priority: "low",
-  endDate: "2023-10-18",
-  status: ["Закрыто"],
-  columnId: "6518e70fbca6d15e876bc711",
-  user_id: "1748353606",
-  startDate: "2023-10-01T10:48:52",
-  location: "6518e70fbca6d15e876bc70c",
-};
+
