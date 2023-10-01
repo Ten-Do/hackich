@@ -1,0 +1,94 @@
+[
+  {
+    "boardId": "6518afaebca6d15e876b5c3c",
+    "color": "#61B1FB",
+    "id": "6518afaebca6d15e876b5c3e",
+    "isClose": false,
+    "name": "Сделать",
+    "projectId": "6518afaebca6d15e876b5c3a",
+    "tasks": [
+      {
+        "attachments": [],
+        "boardId": "6518afaebca6d15e876b5c3c",
+        "columnId": "6518afaebca6d15e876b5c3e",
+        "createdAt": "2023-09-30T23:30:54.936Z",
+        "creator": {
+          "avatar": "",
+          "color": "#320085",
+          "createdAt": "2023-09-30T23:30:54.905Z",
+          "email": "nik1462613@mail.ru",
+          "firstName": "Po",
+          "id": "6518afae879982c20f0cc678",
+          "lastName": "po",
+          "name": "Po po",
+          "rights": [],
+          "role": "user",
+          "surName": "fp",
+          "updatedAt": "2023-09-30T23:30:54.905Z"
+        },
+        "dependenceOf": [],
+        "description": "Описание моей задачи",
+        "endDate": "2023-09-30T23:30:54.935Z",
+        "files": [],
+        "id": "6518afaebca6d15e876b5c49",
+        "logs": [],
+        "name": "Моя задача",
+        "priority": "middle",
+        "projectId": "6518afaebca6d15e876b5c3a",
+        "spaceId": "6518afaebca6d15e876b5c37",
+        "spectators": [],
+        "startDate": "2023-09-30T23:30:54.935Z",
+        "status": [
+          "revision"
+        ],
+        "subTasks": [],
+        "taskNumber": "RFC-0",
+        "updatedAt": "2023-09-30T23:30:54.936Z",
+        "users": [
+          {
+            "avatar": "",
+            "color": "#320085",
+            "createdAt": "2023-09-30T23:30:54.905Z",
+            "email": "nik1462613@mail.ru",
+            "firstName": "Po",
+            "id": "6518afae879982c20f0cc678",
+            "lastName": "po",
+            "name": "Po po",
+            "rights": [],
+            "role": "user",
+            "surName": "fp",
+            "updatedAt": "2023-09-30T23:30:54.905Z"
+          }
+        ],
+        "views": 0
+      }
+    ]
+  },
+  {
+    "boardId": "6518afaebca6d15e876b5c3c",
+    "color": "#61B1FB",
+    "id": "6518afaebca6d15e876b5c3f",
+    "isClose": false,
+    "name": "В работе",
+    "projectId": "6518afaebca6d15e876b5c3a",
+    "tasks": []
+  },
+  {
+    "boardId": "6518afaebca6d15e876b5c3c",
+    "color": "#61B1FB",
+    "id": "6518afaebca6d15e876b5c40",
+    "isClose": false,
+    "name": "Готово",
+    "projectId": "6518afaebca6d15e876b5c3a",
+    "tasks": []
+  },
+  {
+    "boardId": "6518afaebca6d15e876b5c3c",
+    "color": "#61B1FB",
+    "id": "6518afaebca6d15e876b5c41",
+    "isClose": true,
+    "name": "Закрыто",
+    "projectId": "6518afaebca6d15e876b5c3a",
+    "tasks": []
+  }
+]

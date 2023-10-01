@@ -45,10 +45,6 @@
   --btn-hover-opacity: 0.2;
 }
 
-body[colorscheme="white"]:root {
-  --color-ghost-white: 20, 20, 20;
-}
-
 body {
   color: rgb(var(--color-primary-black));
   font-size: 14px;

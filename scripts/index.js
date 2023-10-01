@@ -1,10 +1,24 @@
-const TG = window.Telegram?.WebApp;
-const theme = TG?.colorScheme || "dark";
+// if (TG) {
+//   TG.expand();
+//   const tgUserId = TG.initDataUnsafe.user.id
+// }
 
-if (theme === "light") {
-  document.body.setAttribute("colorScheme", "white");
-}
-
+const errorModal = (message) => {
+  const overlay = document.createElement("div");
+  overlay.classList.add("modal-overlay");
+  overlay.id = "modal-overlay";
+  const header = document.createElement("h2");
+  header.innerText = "Что-то пошло не так..";
+  const wrapper = document.createElement("div");
+  wrapper.appendChild(header);
+  wrapper.classList.add("modal-wrapper");
+  const container = document.createElement("p");
+  container.innerText = message;
+  wrapper.appendChild(container);
+  overlay.appendChild(wrapper);
+  overlay.addEventListener("click", (e) => _onModalDismiss(e, overlay));
+  document.body.appendChild(overlay);
+};
 const render_data = (data, ref) => {
   const container = document.createElement("div");
   container.classList.add("tasks-container");
@@ -17,6 +31,19 @@ const render_data = (data, ref) => {
 
 function createTaskCard(data) {
   // Create a card container
+
+  /**
+ *   {
+    "boardId": "6518afaebca6d15e876b5c3c",
+    "color": "#61B1FB",
+    "id": "6518afaebca6d15e876b5c3f",
+    "isClose": false,
+    "name": "В работе",
+    "projectId": "6518afaebca6d15e876b5c3a",
+    "tasks": []
+  },
+ */
+
   var container = document.createElement("div");
 
   // Format the endDate to "DD.MM.YY" format
@@ -60,19 +87,28 @@ const _getDate = (stringDate) => {
 };
 
 window.addEventListener("load", () => {
-  console.log("onload");
-  fetch("jsons/data.json")
-    .then((res) => {
-      if (res.ok) return res.json();
-      else throw new Error("Something Went Wrong...");
-    })
+  // HERE!
+  getter("get_columns_by_user_id")
     .then((data) => {
-      console.log(data);
+      localStorage.setItem("boardId", data[0]?.boardId);
       for (const elem of document.querySelectorAll(".dropdown-content")) {
         render_data(data, elem);
       }
     })
-    .catch((err) => console.log(err))
+    .catch(() => {
+      fetch("jsons/data.json")
+        .then((res) => {
+          if (res.ok) return res.json();
+          else throw new Error("Something Went Wrong...");
+        })
+        .then((data) => {
+          console.log(data);
+          for (const elem of document.querySelectorAll(".dropdown-content")) {
+            render_data(data, elem);
+          }
+        })
+        .catch((err) => console.log(err));
+    })
     .finally(() => {
       setTimeout(() => {
         const loader = document.querySelector(".loader");
@@ -123,16 +159,12 @@ document.querySelector(".addCategory").addEventListener("click", () => {
   inp.placeholder = "Hackich";
   btn.addEventListener("click", () => {
     if (inp.value) {
-      fetch("", {
-        body: JSON.stringify({
-          value: inp.value,
-        }),
+      // HERE!
+      getter("", {
+        value: inp.value,
       })
-        .then((res) => {
-          if (res.ok) return res.json();
-          throw new Error("smth went wrong");
-        })
-        .then(window.location.reload());
+        .then(window.location.reload())
+        .catch((err) => errorModal(err.message));
     } else {
       inp.style.borderColor = "red";
     }
@@ -147,3 +179,33 @@ document.querySelector(".addCategory").addEventListener("click", () => {
 
 // window.Telegram.WebApp.initDataUnsafe;
 // window.Telegram.WebApp.colorScheme;
+// fetch("https://innoglobalhack.site/api/get_board", {
+//   method: "POST",
+//   body: JSON.stringify({
+//     board_id: "6518afaebca6d15e876b5c3c",
+//     user_id: "461656218",
+//   }),
+// })
+//   .then((res) => res.json())
+//   .then((data) => console.log(data));
+
+// FETCHING
+const getter = async (url, body) => {
+  return await fetch("https://innoglobalhack.site/api/" + url, {
+    method: "POST",
+    body: JSON.stringify({
+      user_id: TG.initDataUnsafe?.user?.id,
+      ...body,
+    }),
+  }).then((res) => res.json());
+};
+
+const fetchTasks = async () => {
+  getter("column")
+    .then((data) => {
+      if (!data.board_id) {
+        errorModal("Сначала выберите доску в тг боте");
+      }
+    })
+    .catch((err) => errorModal(err.message));
+};

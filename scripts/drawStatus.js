@@ -1,3 +1,4 @@
+const TG = window.Telegram?.WebApp;
 const fields = [
   { label: "Task Name:", type: "text", name: "taskName", required: true },
   { label: "Task Description:", type: "textarea", name: "taskDescription" },
@@ -66,14 +67,13 @@ const showAddTaskModal = (children) => {
 
   const submitButton = document.createElement("button");
   submitButton.type = "submit";
-  submitButton.innerText = "Create Task";
-
+  submitButton.innerText = "Добавить";
   form.appendChild(submitButton);
   formContainer.appendChild(form);
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    console.log("Form submitted!");
+    console.log(e);
   });
   //
 
@@ -87,12 +87,22 @@ function addTask(e, status) {
   e.stopPropagation();
   showAddTaskModal();
 }
+const getter = async (url, body) => {
+  return await fetch("https://innoglobalhack.site/api/" + url, {
+    method: "POST",
+    body: JSON.stringify({
+      user_id: TG.initDataUnsafe?.user?.id,
+      ...body,
+    }),
+  }).then((res) => res.json());
+};
 
-fetch("")
-  .then((res) =>
-    res.ok && 0 ? res.json() : ["inWork", "done", "planned", "closed"]
-  )
+getter("get_columns_by_user_id", )
+  // .then((res) =>
+  //   res.ok && 0 ? res.json() : ["inWork", "done", "planned", "closed"]
+  // )
   .then((data) => {
+    localStorage.setItem("data", data);
     const container = document.querySelector(".tasks");
     let html = "";
     data.forEach((element) => {
@@ -125,3 +135,4 @@ function createValidVariableName(str) {
 
   return validName;
 }
+
