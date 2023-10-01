@@ -3,7 +3,6 @@
 //   const tgUserId = TG.initDataUnsafe.user.id
 // }
 
-
 const render_data = (data, ref) => {
   const container = document.createElement("div");
   container.classList.add("tasks-container");
@@ -76,24 +75,14 @@ window.addEventListener("load", () => {
 
   getData()
     .then((data) => {
-      for (const elem of document.querySelectorAll(".dropdown-content")) {
-        render_data(data.tasks, elem);
+      for (const column of data) {
+        render_data(
+          column.tasks,
+          document.getElementById(createValidVariableName(column.name))
+        );
       }
     })
-    .catch(() => {
-      fetch("jsons/data.json")
-        .then((res) => {
-          if (res.ok) return res.json();
-          else throw new Error("Something Went Wrong...");
-        })
-        .then((data) => {
-          console.log(data);
-          for (const elem of document.querySelectorAll(".dropdown-content")) {
-            render_data(data, elem);
-          }
-        })
-        .catch((err) => console.log(err));
-    })
+    .catch((err) => errorModal(err.message))
     .finally(() => {
       setTimeout(() => {
         const loader = document.querySelector(".loader");
