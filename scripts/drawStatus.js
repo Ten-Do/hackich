@@ -113,7 +113,7 @@ const getter = async (url, body) => {
       ...body,
     }),
   })
-    .then((res) => res.json())
+    .then((res) => {console.log(res); return res.json()})
     .catch((err) => console.log(err));
 };
 
