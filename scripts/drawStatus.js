@@ -116,7 +116,7 @@ const getter = async (url, body) => {
       user_id: TG.initDataUnsafe?.user?.id,
       ...body,
     }),
-    "Content-Type": "application/json",
+    headers: { "Content-Type": "application/json" },
   })
     .then((res) => {
       console.log("RESPONSE: ", res);
