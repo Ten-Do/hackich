@@ -120,7 +120,12 @@ const showAddTaskModal = (status) => {
     const jsonData = JSON.stringify(formObject);
 
     // You now have a JSON representation of the form data
-    getter('create_task', jsonData)
+    getter("create_task", jsonData)
+      .then((data) => {
+        console.log(data);
+        window.location.reload();
+      })
+      .catch((err) => errorModal(err.message));
 
     // Handle form submission here or send the jsonData to the server
   });
