@@ -315,7 +315,7 @@ const changeColumn = async (columnId, taskId) => {
     task_id: taskId,
     location: window.fetchedData.boardId,
   })
-    .then(window.location.reload())
+    // .then(window.location.reload())
     .catch((err) => errorModal("ERR = " + err.message));
 };
 
