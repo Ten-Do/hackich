@@ -98,18 +98,31 @@ const showAddTaskModal = (status) => {
     // Convert FormData to a plain JavaScript object
     const formObject = {};
     formData.forEach((value, key) => {
-      formObject[key + ''] = value + '';
+      formObject[key + ""] = value + "";
     });
-    formObject.status = [status]
-    formObject.columnId = winow.fetchedData
+    formObject.status = [status];
+    formObject.columnId = window.fetchedData.filter(
+      (elem) => elem.name === status
+    )[0].id;
+    formObject.user_id = TG.initDataUnsafe?.user?.id;
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = (now.getMonth() + 1).toString().padStart(2, "0");
+    const day = now.getDate().toString().padStart(2, "0");
+    const hours = now.getHours().toString().padStart(2, "0");
+    const minutes = now.getMinutes().toString().padStart(2, "0");
+    const seconds = now.getSeconds().toString().padStart(2, "0");
+    formObject.startDate = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
+    formObject.location = window.fetchedData.filter(
+      (elem) => elem.name === status
+    )[0].boardId;
     // Convert the formObject to JSON
     const jsonData = JSON.stringify(formObject);
 
     // You now have a JSON representation of the form data
-    console.log(jsonData);
+    getter('create_task', jsonData)
 
     // Handle form submission here or send the jsonData to the server
-
   });
   //
 
@@ -124,10 +137,6 @@ function addTask(e, status) {
   showAddTaskModal(status);
 }
 const getter = async (url, body) => {
-  console.log({
-    user_id: TG.initDataUnsafe?.user?.id,
-    ...body,
-  });
   return await fetch("https://innoglobalhack.site/api/" + url, {
     method: "POST",
     body: JSON.stringify({
