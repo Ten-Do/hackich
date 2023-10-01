@@ -125,7 +125,6 @@ const showAddTaskModal = (status) => {
       (elem) => elem.name.toUpperCase() === status.toUpperCase()
     )[0].boardId;
     // Convert the formObject to JSON
-    const jsonData = ;
 
     // You now have a JSON representation of the form data
     errorModal(formObject);
