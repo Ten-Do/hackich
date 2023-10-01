@@ -106,14 +106,22 @@ function addTask(e, status) {
   showAddTaskModal();
 }
 const getter = async (url, body) => {
+  console.log({
+    user_id: TG.initDataUnsafe?.user?.id,
+    ...body,
+  });
   return await fetch("https://innoglobalhack.site/api/" + url, {
     method: "POST",
     body: JSON.stringify({
       user_id: TG.initDataUnsafe?.user?.id,
       ...body,
     }),
+    "Content-Type": "application/json",
   })
-    .then((res) => {console.log("RESPONSE: ", res); return res.json()})
+    .then((res) => {
+      console.log("RESPONSE: ", res);
+      return res.json();
+    })
     .catch((err) => console.log(err));
 };
 
