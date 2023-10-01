@@ -4,6 +4,7 @@
 // }
 
 const render_data = (data, ref) => {
+  console.log("data: ", data);
   const container = document.createElement("div");
   container.classList.add("tasks-container");
   data.forEach((element) => {
