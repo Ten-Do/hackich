@@ -101,7 +101,7 @@ const showAddTaskModal = (status) => {
       formObject[key + ''] = value + '';
     });
     formObject.status = [status]
-    formObject.columnId = winow.fetchedData.
+    formObject.columnId = winow.fetchedData
     // Convert the formObject to JSON
     const jsonData = JSON.stringify(formObject);
 
