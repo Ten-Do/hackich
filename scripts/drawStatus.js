@@ -112,7 +112,9 @@ const getter = async (url, body) => {
       user_id: TG.initDataUnsafe?.user?.id,
       ...body,
     }),
-  }).then((res) => res.json());
+  })
+    .then((res) => res.json())
+    .catch((err) => console.log(err));
 };
 
 getter("get_columns_by_user_id")
@@ -140,7 +142,7 @@ getter("get_columns_by_user_id")
     });
     container.innerHTML = html;
   })
-  .catch(err => errorModal(err.message));
+  .catch((err) => errorModal(err.message));
 
 function createValidVariableName(str) {
   // Remove any non-alphanumeric characters
