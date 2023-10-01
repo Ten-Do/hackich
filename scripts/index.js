@@ -272,8 +272,8 @@ const showModal = (children) => {
   wrapper.appendChild(header);
   wrapper.classList.add("modal-wrapper");
   const container = document.createElement("div");
-  for (let i = 0; i < 4; i++) {
-    container.innerHTML += `<div class="cat-btn">${i}</div>`;
+  for (let column of window.fetchedData) {
+    container.innerHTML += `<div class="cat-btn">${column.name}</div>`;
   }
   wrapper.appendChild(container);
   overlay.appendChild(wrapper);
