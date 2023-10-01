@@ -1,4 +1,22 @@
 const TG = window.Telegram?.WebApp;
+
+const errorModal = (message) => {
+  const overlay = document.createElement("div");
+  overlay.classList.add("modal-overlay");
+  overlay.id = "modal-overlay";
+  const header = document.createElement("h2");
+  header.innerText = "Что-то пошло не так..";
+  const wrapper = document.createElement("div");
+  wrapper.appendChild(header);
+  wrapper.classList.add("modal-wrapper");
+  const container = document.createElement("p");
+  container.innerText = message;
+  wrapper.appendChild(container);
+  overlay.appendChild(wrapper);
+  overlay.addEventListener("click", (e) => _onModalDismiss(e, overlay));
+  document.body.appendChild(overlay);
+};
+
 const fields = [
   { label: "Task Name:", type: "text", name: "taskName", required: true },
   { label: "Task Description:", type: "textarea", name: "taskDescription" },
@@ -97,7 +115,7 @@ const getter = async (url, body) => {
   }).then((res) => res.json());
 };
 
-getter("get_columns_by_user_id", )
+getter("get_columns_by_user_id")
   // .then((res) =>
   //   res.ok && 0 ? res.json() : ["inWork", "done", "planned", "closed"]
   // )
@@ -105,11 +123,13 @@ getter("get_columns_by_user_id", )
     localStorage.setItem("data", data);
     const container = document.querySelector(".tasks");
     let html = "";
-    data.forEach((element) => {
+    data.forEach(({ name }) => {
       html += `
-      <div class="dropdown category" id="${createValidVariableName(element)}">
-      <div class="dropdown-btn" onclick="toggleDropdown('${element}')">
-        <p>${element}</p>
+      <div class="dropdown category" id="${createValidVariableName(name)}">
+      <div class="dropdown-btn" onclick="toggleDropdown('${createValidVariableName(
+        name
+      )}')">
+        <p>${name}</p>
         <div class="addTask" onclick="addTask(event)">        
           <img src="/assets/icons/add.svg" alt="Добавить" />
         </div>
@@ -119,14 +139,15 @@ getter("get_columns_by_user_id", )
       `;
     });
     container.innerHTML = html;
-  });
+  })
+  .catch(err => errorModal(err.message));
 
 function createValidVariableName(str) {
   // Remove any non-alphanumeric characters
-  const cleanedStr = str.replace(/[^a-zA-Z0-9_$]/g, "");
+  const cleanedStr = str.replace(/[^а-яА-Яa-zA-Z0-9_$]/g, "");
 
   // Ensure the first character is a letter, underscore, or dollar sign
-  let validName = cleanedStr.charAt(0).match(/[a-zA-Z_$]/)
+  let validName = cleanedStr.charAt(0).match(/[а-яА-Яa-zA-Z_$]/)
     ? cleanedStr.charAt(0)
     : "_";
 
@@ -135,4 +156,3 @@ function createValidVariableName(str) {
 
   return validName;
 }
-

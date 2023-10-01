@@ -3,22 +3,7 @@
 //   const tgUserId = TG.initDataUnsafe.user.id
 // }
 
-const errorModal = (message) => {
-  const overlay = document.createElement("div");
-  overlay.classList.add("modal-overlay");
-  overlay.id = "modal-overlay";
-  const header = document.createElement("h2");
-  header.innerText = "Что-то пошло не так..";
-  const wrapper = document.createElement("div");
-  wrapper.appendChild(header);
-  wrapper.classList.add("modal-wrapper");
-  const container = document.createElement("p");
-  container.innerText = message;
-  wrapper.appendChild(container);
-  overlay.appendChild(wrapper);
-  overlay.addEventListener("click", (e) => _onModalDismiss(e, overlay));
-  document.body.appendChild(overlay);
-};
+
 const render_data = (data, ref) => {
   const container = document.createElement("div");
   container.classList.add("tasks-container");
@@ -85,14 +70,14 @@ const _getDate = (stringDate) => {
   const dateString = `${day}.${month}.${year}`;
   return dateString;
 };
-
+const getData = async () => localStorage.getItem("data");
 window.addEventListener("load", () => {
   // HERE!
-  getter("get_columns_by_user_id")
+
+  getData()
     .then((data) => {
-      localStorage.setItem("boardId", data[0]?.boardId);
       for (const elem of document.querySelectorAll(".dropdown-content")) {
-        render_data(data, elem);
+        render_data(data.tasks, elem);
       }
     })
     .catch(() => {
@@ -190,15 +175,15 @@ document.querySelector(".addCategory").addEventListener("click", () => {
 //   .then((data) => console.log(data));
 
 // FETCHING
-const getter = async (url, body) => {
-  return await fetch("https://innoglobalhack.site/api/" + url, {
-    method: "POST",
-    body: JSON.stringify({
-      user_id: TG.initDataUnsafe?.user?.id,
-      ...body,
-    }),
-  }).then((res) => res.json());
-};
+// const getter = async (url, body) => {
+//   return await fetch("https://innoglobalhack.site/api/" + url, {
+//     method: "POST",
+//     body: JSON.stringify({
+//       user_id: TG.initDataUnsafe?.user?.id,
+//       ...body,
+//     }),
+//   }).then((res) => res.json());
+// };
 
 const fetchTasks = async () => {
   getter("column")
