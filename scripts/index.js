@@ -127,11 +127,9 @@ const showAddTaskModal = (status) => {
     // Convert the formObject to JSON
 
     // You now have a JSON representation of the form data
-    errorModal(formObject);
     getter("create_task", formObject)
       .then((data) => {
-        console.log(data);
-        // window.location.reload();
+        window.location.reload();
       })
       .catch((err) => errorModal(err.message));
 
