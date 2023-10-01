@@ -346,8 +346,12 @@ document.querySelector(".addCategory").addEventListener("click", () => {
   btn.addEventListener("click", () => {
     if (inp.value) {
       // HERE!
-      getter("", {
-        value: inp.value,
+      getter("create_column", {
+        name: inp.value,
+        boardId: window.fetchedData[0].boardId,
+        color: "#ffffff",
+        location: window.fetchedData[0].projectId,
+        projectId: window.fetchedData[0].projectId,
       })
         .then(window.location.reload())
         .catch((err) => errorModal(err.message));
@@ -385,5 +389,3 @@ document.querySelector(".addCategory").addEventListener("click", () => {
 //     }),
 //   }).then((res) => res.json());
 // };
-
-
